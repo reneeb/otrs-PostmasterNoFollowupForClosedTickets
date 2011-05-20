@@ -2,6 +2,7 @@ package Kernel::System::PostMaster::Filter::NoFollowupForClosedTicketsPost;
 
 use strict;
 use Kernel::System::Ticket;
+use Kernel::System::LinkObject;
 
 use vars qw($VERSION);
 $VERSION = '$Revision: 1.4 $';
@@ -19,12 +20,13 @@ sub new {
 
     # get needed opbjects
     for my $Object (
-        qw(ConfigObject LogObject DBObject ParseObject TimeObject MainObject EncodeObject)
+        qw(ConfigObject LogObject DBObject TimeObject MainObject EncodeObject)
     ) {
-        $Self->{$_} = $Param{$_} || die "Got no $_!";
+        $Self->{$Object} = $Param{$Object} || die "Got no $Object!";
     }
 
     $Self->{TicketObject} = Kernel::System::Ticket->new( %{$Self} );
+    $Self->{LinkObject}   = Kernel::System::LinkObject->new( %{$Self} );
 
     return $Self;
 }
@@ -46,7 +48,7 @@ sub Run {
     return 1 if !$Param{GetParam}->{'X-OTRS-LinkToTicket'};
     return 1 if !$Self->{ConfigObject}->Get('NoFollowupFilter::LinkTicket');
 
-    $LinkObject->LinkAdd(
+    $Self->{LinkObject}->LinkAdd(
         SourceObject => 'Ticket',
         SourceKey    => $Param{GetParam}->{'X-OTRS-LinkToTicket'},
         TargetObject => 'Ticket',

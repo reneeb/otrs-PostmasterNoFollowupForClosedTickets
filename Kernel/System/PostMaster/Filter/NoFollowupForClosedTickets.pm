@@ -20,9 +20,9 @@ sub new {
 
     # get needed opbjects
     for my $Object (
-        qw(ConfigObject LogObject DBObject ParseObject TimeObject MainObject EncodeObject)
+        qw(ConfigObject LogObject DBObject TimeObject MainObject EncodeObject)
     ) {
-        $Self->{$_} = $Param{$_} || die "Got no $_!";
+        $Self->{$Object} = $Param{$Object} || die "Got no $Object!";
     }
 
     $Self->{TicketObject} = Kernel::System::Ticket->new( %{$Self} );
@@ -34,7 +34,7 @@ sub new {
 sub Run {
     my ( $Self, %Param ) = @_;
 
-    for my $Needed (qw(TicketID JobConfig GetParam)) {
+    for my $Needed (qw(JobConfig GetParam)) {
         if ( !$Param{$Needed} ) {
             $Self->{LogObject}->Log(
                 Priority => 'error',
@@ -44,10 +44,7 @@ sub Run {
         }
     }
 
-    my $Subject = $Param{GetParam}->{Subject};
-
     return 1 if !$Param{TicketID};
-
 
     # get a list of "closed" states
     my @Closed = $Self->{StateObject}->StateGetStatesByType(
@@ -63,7 +60,7 @@ sub Run {
     return 1 if !grep{ $Ticket{State} }@Closed;
 
     # remove ticket number from subject
-    my $Subject           = $Param{Subject} || '';
+    my $Subject           = $Param{GetParam}->{Subject};
     my $Tn                = $Self->{TicketObject}->GetTNByString($Subject);
     my $TicketHook        = $Self->{ConfigObject}->Get('Ticket::Hook');
     my $TicketHookDivider = $Self->{ConfigObject}->Get('Ticket::HookDivider');

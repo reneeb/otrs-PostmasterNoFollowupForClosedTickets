@@ -12,5 +12,6 @@
         <File Permission="644" Location="Kernel/Config/Files/PostmasterNoFollowupForClosedTickets.xml" />
         <File Permission="644" Location="Kernel/System/PostMaster/Filter/NoFollowupForClosedTickets.pm" />
         <File Permission="644" Location="Kernel/Config/PostMaster/Filter/NoFollowupForClosedTicketsPost.pm" />
+        <File Permission="644" Location="Kernel/Config/PostMaster.pm" />
     </Filelist>
 </otrs_package>

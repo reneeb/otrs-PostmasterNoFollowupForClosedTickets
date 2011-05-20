@@ -19,7 +19,7 @@
         <SubGroup>Core</SubGroup>
         <Setting>
             <Hash>
-                <Item Key="Module">Kernel::System::PostMaster::Filter::NoFollowupsForClosedTickets</Item>
+                <Item Key="Module">Kernel::System::PostMaster::Filter::NoFollowupForClosedTickets</Item>
             </Hash>
         </Setting>
     </ConfigItem>
@@ -29,7 +29,7 @@
         <SubGroup>Core</SubGroup>
         <Setting>
             <Hash>
-                <Item Key="Module">Kernel::System::PostMaster::Filter::NoFollowupsForClosedTicketsPost</Item>
+                <Item Key="Module">Kernel::System::PostMaster::Filter::NoFollowupForClosedTicketsPost</Item>
             </Hash>
         </Setting>
     </ConfigItem>

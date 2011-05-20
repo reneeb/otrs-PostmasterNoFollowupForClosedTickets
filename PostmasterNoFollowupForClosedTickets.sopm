@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<otrs_package version="1.1">
+    <Name>PostmasterNoFollowupForClosedTickets</Name>
+    <Version>0.0.1</Version>
+    <Vendor>Renee Baecker, Perl-Services.de</Vendor>
+    <URL>http://perl-services.de/</URL>
+    <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
+    <Description Lang="en">Do not create a follow up for a closed ticket, create a new ticket instead.</Description>
+    <Description Lang="de">Erzeugt ein neues Ticket, statt eine Antwort auf ein geschlossenes Ticket zu erstellen.</Description>
+    <Framework>3.0.x</Framework>
+    <Filelist>
+        <File Permission="644" Location="Kernel/Config/Files/PostmasterNoFollowupForClosedTickets.xml" />
+        <File Permission="644" Location="Kernel/System/PostMaster/Filter/NoFollowupForClosedTickets.pm" />
+        <File Permission="644" Location="Kernel/Config/PostMaster/Filter/NoFollowupForClosedTicketsPost.pm" />
+    </Filelist>
+</otrs_package>

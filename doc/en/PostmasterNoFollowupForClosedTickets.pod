@@ -1,0 +1,20 @@
+=head1 NAME
+
+PostmasterNoFollowupForClosedTickets
+
+=head1 DESCRIPTION
+
+If you close tickets and it is not allowed that there are articles added when
+the ticket is closed and you do not want to loose the email, a new ticket
+should be created. 
+
+This package does exactly that. It checks if the mail would be a followup of a
+ticket. If that ticket is closed, a new ticket is created (instead of an article).
+
+The new ticket is linked to the closed one.
+
+=head1 AUTHOR AND LICENSE
+
+Author: Renee Baecker E<lt>opar@perl-services.deE<gt>
+License: AGPL 3
+

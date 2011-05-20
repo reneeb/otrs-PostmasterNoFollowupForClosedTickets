@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <otrs_package version="1.1">
     <Name>PostmasterNoFollowupForClosedTickets</Name>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
     <Vendor>Renee Baecker, Perl-Services.de</Vendor>
     <URL>http://perl-services.de/</URL>
     <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
@@ -13,5 +13,6 @@
         <File Permission="644" Location="Kernel/System/PostMaster/Filter/NoFollowupForClosedTickets.pm" />
         <File Permission="644" Location="Kernel/System/PostMaster/Filter/NoFollowupForClosedTicketsPost.pm" />
         <File Permission="644" Location="Kernel/System/PostMaster.pm" />
+        <File Permission="644" Location="doc/en/PostmasterNoFollowupForClosedTickets.pod" />
     </Filelist>
 </otrs_package>
